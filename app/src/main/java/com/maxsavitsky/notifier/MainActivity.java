@@ -71,15 +71,18 @@ public class MainActivity extends AppCompatActivity {
 
 		mMessages = new ArrayList<>();
 		mCurMessageId = 0;
-		for(int i = 0; i < text.length(); i++){
-			String m = "";
-			int j;
-			for(j = 0; j < count && i + j < text.length(); j++){
-				m = String.format( "%s%c", m, text.charAt( i + j ) );
+		if(count == 0){
+			mMessages.add( text );
+		}else
+			for(int i = 0; i < text.length(); i++){
+				String m = "";
+				int j;
+				for(j = 0; j < count && i + j < text.length(); j++){
+					m = String.format( "%s%c", m, text.charAt( i + j ) );
+				}
+				i += j-1;
+				mMessages.add( m );
 			}
-			i += j-1;
-			mMessages.add( m );
-		}
 		for(int i = 0; i < mMessages.size(); i++){
 			String s;
 			if(checkBox2.isChecked()){
