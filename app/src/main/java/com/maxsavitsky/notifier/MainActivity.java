@@ -55,8 +55,9 @@ public class MainActivity extends AppCompatActivity {
 		EditText editTextCount = findViewById(R.id.editTextCount );
 		EditText editTextMain = findViewById(R.id.editTextMainText );
 		CheckBox checkBox = findViewById( R.id.checkBox );
+		CheckBox checkBox2 = findViewById( R.id.checkBox2 );
 
-		if(editTextCount.getText() == null || editTextMain.getText() == null) {
+		if(editTextCount.getText().toString().equals( "" ) || editTextMain.getText().toString().equals( "" )) {
 			Toast.makeText( this, "Заполните пустые поля", Toast.LENGTH_LONG ).show();
 			return;
 		}
@@ -79,7 +80,13 @@ public class MainActivity extends AppCompatActivity {
 			i += j-1;
 			mMessages.add( m );
 		}
-		for(String s : mMessages){
+		for(int i = 0; i < mMessages.size(); i++){
+			String s;
+			if(checkBox2.isChecked()){
+				s = mMessages.get( mMessages.size() - i - 1 );
+			}else{
+				s = mMessages.get( i );
+			}
 			sendMessage( s );
 		}
 	}

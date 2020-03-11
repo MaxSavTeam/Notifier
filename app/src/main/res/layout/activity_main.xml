@@ -37,6 +37,12 @@
             android:checked="true"
             android:text="Учитывать переносы строк" />
 
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Отправлять текст с конца\nдля нормального отображения на браслете" />
+
         <Button
             android:id="@+id/button"
             style="@style/Widget.AppCompat.Button.Colored"
